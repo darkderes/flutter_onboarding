@@ -20,7 +20,6 @@ class  _OnboardingScreenState extends State <OnboardingScreen> {
   }
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _pageController.dispose();
   }
@@ -55,13 +54,13 @@ class  _OnboardingScreenState extends State <OnboardingScreen> {
               itemBuilder: (_, i) {
               return  SingleChildScrollView(
                 child:Padding(
-                  padding: EdgeInsets.all(40),
+                  padding: const EdgeInsets.all(40),
                   child: Column(
                   children: [Image.asset(listOnboardContent[i].imagen),
-                  SizedBox(height: 20,),
-                  Text(listOnboardContent[i].titulo, style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
-                  SizedBox(height: 20,),
-                  Text(listOnboardContent[i].descripcion, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  const SizedBox(height: 20,),
+                  Text(listOnboardContent[i].titulo, style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
+                  const SizedBox(height: 20,),
+                  Text(listOnboardContent[i].descripcion, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.justify,),
                   
                   ],
@@ -70,12 +69,9 @@ class  _OnboardingScreenState extends State <OnboardingScreen> {
               );   
             }),
             ),
-            Container(
-      
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(listOnboardContent.length, (index) => buildPage(index, context)),
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(listOnboardContent.length, (index) => buildPage(index, context)),
             ),   
             Container(
               height: 60,
@@ -83,7 +79,7 @@ class  _OnboardingScreenState extends State <OnboardingScreen> {
               margin: const EdgeInsets.all(40),
               child: MaterialButton(onPressed: () async {
                 if(currentIndex == listOnboardContent.length - 1) {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => HomePage()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => const HomePage()));
                 }
                 _pageController.nextPage(duration: const Duration(seconds: 1), curve: Curves.easeInOut);
               },
